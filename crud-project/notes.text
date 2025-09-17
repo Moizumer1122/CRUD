@@ -1,0 +1,23 @@
+React CRUD Operation step-by-step
+1: create your react app
+2: install these packages
+   npm install react-router-dom axios bootstrap json-server
+json-server --watch db.json
+https://www.youtube.com/watch?v=SYv61aPSiOo
+
+
+
+
+
+concepts of axios
+// 1: GET - to get data from server
+
+axios.get('url')
+  .then((res) => {
+    // Success — you got the data
+    console.log(res.data); // Show the data
+  })
+  .catch((err) => {
+    // Error — something went wrong
+    console.log(err); // Show the error
+  });
