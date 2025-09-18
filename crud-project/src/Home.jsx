@@ -17,6 +17,20 @@ useEffect(() => {
       });
 }, []);  
 
+const handleDelete = (id) => {
+  const confirm = window.confirm('Are you sure you want to delete this user?')
+  if (confirm){
+    axios.delete('http://localhost:3000/users/'+id)
+      .then((res) => {    
+        alert('User Deleted Successfully')
+        window.location.reload()
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+}
+
   return (
 
 <div className='d-flex flex-column justify-content-center align-items-center bg-light vh-100'>
@@ -36,6 +50,7 @@ useEffect(() => {
       <th>Name</th>
       <th>Email</th>  
       <th>phone</th>
+      <th>Actions</th>
     </tr>
     </thead>
 {/* display the main data  */}
@@ -46,10 +61,14 @@ useEffect(() => {
     <td>{item.name}</td>
     <td>{item.email}</td>
     <td>{item.phone}</td>
-    <td>
-       <button className='btn btn-info me-2'>Read</button>
-      <button className='btn btn-primary me-2'>Edit</button>
-      <button className='btn btn-danger'>Delete</button>
+    <td className='text-nowrap'>
+      <Link to={`/read/${item.id}`}>
+        <button className='btn btn-info btn-sm me-2'>Details</button>
+      </Link>
+      <Link to={`/update/${item.id}`}>
+        <button className='btn btn-primary btn-sm me-2'>Edit</button>
+      </Link>
+      <button className='btn btn-danger btn-sm' onClick={() => handleDelete(item.id)}>Delete</button>
     </td>
   </tr>
 ))}
