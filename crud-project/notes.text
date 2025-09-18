@@ -22,3 +22,16 @@ axios.get('url')
     console.log(err); // Show the error
   });
   
+
+authenication and role based routing
+https://youtu.be/4zmD1HTtiRY?si=4dTRmUbpgRtxiKeB
+
+
+
+authenication 
+https://www.youtube.com/watch?v=OYkmIIKfWq4
+
+
+
+
+
